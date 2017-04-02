@@ -1523,7 +1523,7 @@ comprehensible package.</p>
    <div class="example" id="example-5107eaf9">
     <a class="self-link" href="#example-5107eaf9"></a> MegaCorp, Inc. wishes to defend against cross-site scripting. It can do so by generating a unique
   string for each page load, and including that string both in an <a data-link-type="http-header" href="#http-headerdef-artur" id="ref-for-http-headerdef-artur-1"><code>ARTUR</code></a> header
-  and in the <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/scripting.html#script">script</a></code> element’s <code><a data-link-type="element-sub" href="https://html.spec.whatwg.org/multipage/scripting.html#attr-script-nonce">nonce</a></code> attribute, as follows: 
+  and in the <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/scripting.html#script">script</a></code> element’s <code><a data-link-type="element-sub" href="https://html.spec.whatwg.org/multipage/scripting.html#attr-script-nonce">nonce</a></code> attribute, as follows:
 <pre class="highlight"><a data-link-type="http-header" href="#http-headerdef-artur" id="ref-for-http-headerdef-artur-2">ARTUR</a>: { <span class="s">"</span><a data-link-type="dfn" dictionary-member="" href="#arturpolicy-nonce" id="ref-for-arturpolicy-nonce-1"><span class="s">nonce</span></a><span class="s">"</span>: <span class="s">"</span><strong><span class="s">abcdefg</span></strong><span class="s">"</span> }
 </pre>
 <pre class="highlight"><span class="c">&lt;!--</span><span class="c"> This script will execute. </span><span class="c">--></span>
@@ -1592,7 +1592,7 @@ policy<a class="self-link" href="#serialized-artur-policy"></a></dfn> represente
 <pre>ARTUR = <a data-link-type="grammar" href="http://httpwg.org/http-extensions/jfv.html#rfc.section.2">json-field-value</a>
 </pre>
    <div class="example" id="example-aa2db669">
-    <a class="self-link" href="#example-aa2db669"></a> 
+    <a class="self-link" href="#example-aa2db669"></a>
 <pre><a data-link-type="http-header" href="#http-headerdef-artur" id="ref-for-http-headerdef-artur-4">ARTUR</a>: { "nonce": "abcdefg", "report": "group1" }
 </pre>
     <p>This header will have more or less the same effect as delivering the following header:</p>
@@ -1628,8 +1628,8 @@ make it hard to deny by fiat.</p>
    <div class="example" id="example-ebb6c0d5">
     <a class="self-link" href="#example-ebb6c0d5"></a> MegaCorp, Inc. has a number of libraries which require <code>eval()</code> for various purposes. They can
   allow such execution by sending an appropriate <code class="idl"><a data-link-type="idl" href="#dom-arturpolicy-eval" id="ref-for-dom-arturpolicy-eval-2">eval</a></code> member along with
-  their ARTUR policy: 
-<pre><a data-link-type="http-header" href="#http-headerdef-artur" id="ref-for-http-headerdef-artur-5">ARTUR</a>: { "<a data-link-type="dfn" href="#arturpolicy-hash" id="ref-for-arturpolicy-hash-1">hash</a>": [ "<strong>sha256-abcd...</strong>", "<strong>sha256-zyx...</strong>", "<a data-link-type="dfn" href="#arturpolicy-eval" id="ref-for-arturpolicy-eval-1">eval</a>": "unsafe-allow" ] }
+  their ARTUR policy:
+<pre><a data-link-type="http-header" href="#http-headerdef-artur" id="ref-for-http-headerdef-artur-5">ARTUR</a>: { "<a data-link-type="dfn" href="#arturpolicy-hash" id="ref-for-arturpolicy-hash-1">hash</a>": [ "<strong>sha256-abcd...</strong>", "<strong>sha256-zyx...</strong>" ], "<a data-link-type="dfn" href="#arturpolicy-eval" id="ref-for-arturpolicy-eval-1">eval</a>": "unsafe-allow" }
 </pre>
    </div>
    <h3 class="heading settled" data-level="3.2" id="hash-member"><span class="secno">3.2. </span><span class="content">The <code>hash</code> member</span><a class="self-link" href="#hash-member"></a></h3>
@@ -1641,7 +1641,7 @@ item in the sequence that does not match that grammer MUST be ignored.</p>
     <a class="self-link" href="#example-571c6e8c"></a> MegaCorp, Inc. wishes to ensure that injected <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/scripting.html#script">script</a></code> elements do not execute. They can do so
   by executing a secure hash function (like those specified in <a data-link-type="biblio" href="#biblio-sha2">[SHA2]</a>) on each script they wish to
   execute, and including the resulting list of digests in an <a data-link-type="http-header" href="#http-headerdef-artur" id="ref-for-http-headerdef-artur-6"><code>ARTUR</code></a> header. These digests either match the inline content of a <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/scripting.html#script">script</a></code> element or event handler, or
-  match a <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/scripting.html#script">script</a></code> element’s <code><a data-link-type="element-sub" href="https://w3c.github.io/webappsec-subresource-integrity/#dom-htmlscriptelement-integrity">integrity</a></code> attribute: 
+  match a <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/scripting.html#script">script</a></code> element’s <code><a data-link-type="element-sub" href="https://w3c.github.io/webappsec-subresource-integrity/#dom-htmlscriptelement-integrity">integrity</a></code> attribute:
 <pre><a data-link-type="http-header" href="#http-headerdef-artur" id="ref-for-http-headerdef-artur-7">ARTUR</a>: { "<a data-link-type="dfn" href="#arturpolicy-hash" id="ref-for-arturpolicy-hash-2">hash</a>": [ "<strong>sha256-abcd...</strong>", "<strong>sha256-zyx...</strong>" ] }
 
 ...
@@ -1650,7 +1650,7 @@ item in the sequence that does not match that grammer MUST be ignored.</p>
 &lt;script>
   // Content which hashes to <code>abcd...</code> goes here.
 &lt;/script>
-    
+
 &lt;a onclick="// Content which hashes to <code>zyx...</code> goes here.">Click!&lt;/a>
 </pre>
    </div>
@@ -1663,7 +1663,7 @@ nonce ("number used once") which can be used to ensure that only <code><a data-l
 member’s value does not match that grammar, the value MUST be ignored.</p>
    <div class="example" id="example-93ed919c">
     <a class="self-link" href="#example-93ed919c"></a> MegaCorp, Inc. wishes to ensure that injected <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/scripting.html#script">script</a></code> elements do not execute. They can do so
-  by generating a unique string for each page load, and including that string both in an <a data-link-type="http-header" href="#http-headerdef-artur" id="ref-for-http-headerdef-artur-8"><code>ARTUR</code></a> header and in the <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/scripting.html#script">script</a></code> element’s <code><a data-link-type="element-sub" href="https://html.spec.whatwg.org/multipage/scripting.html#attr-script-nonce">nonce</a></code> attribute, as follows: 
+  by generating a unique string for each page load, and including that string both in an <a data-link-type="http-header" href="#http-headerdef-artur" id="ref-for-http-headerdef-artur-8"><code>ARTUR</code></a> header and in the <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/scripting.html#script">script</a></code> element’s <code><a data-link-type="element-sub" href="https://html.spec.whatwg.org/multipage/scripting.html#attr-script-nonce">nonce</a></code> attribute, as follows:
 <pre><a data-link-type="http-header" href="#http-headerdef-artur" id="ref-for-http-headerdef-artur-9">ARTUR</a>: { "<a data-link-type="dfn" dictionary-member="" href="#arturpolicy-nonce" id="ref-for-arturpolicy-nonce-2">nonce</a>": "<strong>abcdefg</strong>" }
 
 ...
@@ -1680,7 +1680,7 @@ disabled.</p>
    <div class="example" id="example-401f7856">
     <a class="self-link" href="#example-401f7856"></a> MegaCorp, Inc. wishes to receive violation reports when script execution is blocked by the ARTUR
   policy it specifies. It can do so by sending a <code class="idl"><a data-link-type="idl" href="#dom-arturpolicy-report" id="ref-for-dom-arturpolicy-report-2">report</a></code> member along with the
-  policy, and specifying a reporting endpoint, as follows: 
+  policy, and specifying a reporting endpoint, as follows:
 <pre><a data-link-type="http-header" href="#http-headerdef-artur" id="ref-for-http-headerdef-artur-10">ARTUR</a>: { "<a data-link-type="idl" href="#dom-arturpolicy-nonce" id="ref-for-dom-arturpolicy-nonce-2">nonce</a>": "abcdefg", "<a data-link-type="idl" href="#dom-arturpolicy-report" id="ref-for-dom-arturpolicy-report-3">report</a>": "group1" }
 <a data-link-type="http-header" href="https://wicg.github.io/reporting/#report-to">Report-To</a>: { "<a data-link-type="dfn" href="https://wicg.github.io/reporting/#url">url</a>": "https://example.com/report", "<a data-link-type="dfn" href="https://wicg.github.io/reporting/#group">group</a>": "group1", "<a data-link-type="dfn" href="https://wicg.github.io/reporting/#max-age">max-age</a>": 10886400 }
 </pre>
@@ -1693,7 +1693,7 @@ mode, sending violation reports up to a server-side collector while allowing scr
     <a class="self-link" href="#example-feddb6d3"></a> MegaCorp, Inc. wishes to receive violation reports when script execution would be blocked by the
   ARTUR policy it specifies while it verifies that its nonce-generation code is working
   correctly. It can do so by sending <code class="idl"><a data-link-type="idl" href="#dom-arturpolicy-report" id="ref-for-dom-arturpolicy-report-4">report</a></code> and <code class="idl"><a data-link-type="idl" href="#dom-arturpolicy-reportonly" id="ref-for-dom-arturpolicy-reportonly-1">reportOnly</a></code> members along with the policy, and specifying a reporting
-  endpoint, as follows: 
+  endpoint, as follows:
 <pre><a data-link-type="http-header" href="#http-headerdef-artur" id="ref-for-http-headerdef-artur-11">ARTUR</a>: { "<a data-link-type="idl" href="#dom-arturpolicy-nonce" id="ref-for-dom-arturpolicy-nonce-3">nonce</a>": "abcdefg", "<a data-link-type="idl" href="#dom-arturpolicy-report" id="ref-for-dom-arturpolicy-report-5">report</a>": "group1", "<a data-link-type="dfn" href="#arturpolicy-reportonly" id="ref-for-arturpolicy-reportonly-1">reportOnly</a>": true }
 <a data-link-type="http-header" href="https://wicg.github.io/reporting/#report-to">Report-To</a>: { "<a data-link-type="dfn" href="https://wicg.github.io/reporting/#url">url</a>": "https://example.com/report", "<a data-link-type="dfn" href="https://wicg.github.io/reporting/#group">group</a>": "group1", "<a data-link-type="dfn" href="https://wicg.github.io/reporting/#max-age">max-age</a>": 10886400 }
 </pre>
@@ -2089,53 +2089,53 @@ violation report?<a href="#issue-fbed4d71"> ↵ </a></div>
   <aside class="dfn-panel" data-for="artur-policy">
    <b><a href="#artur-policy">#artur-policy</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-artur-policy-1">2.2.1. 
+    <li><a href="#ref-for-artur-policy-1">2.2.1.
   Obtain a set of ARTUR policies for response. </a> <a href="#ref-for-artur-policy-2">(2)</a>
     <li><a href="#ref-for-artur-policy-3">4. Integrations</a>
-    <li><a href="#ref-for-artur-policy-4">4.1.1. 
+    <li><a href="#ref-for-artur-policy-4">4.1.1.
   Populate response’s CSP list from its ARTUR policy. </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="artur-policy-nonce">
    <b><a href="#artur-policy-nonce">#artur-policy-nonce</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-artur-policy-nonce-1">2.2.1. 
+    <li><a href="#ref-for-artur-policy-nonce-1">2.2.1.
   Obtain a set of ARTUR policies for response. </a>
-    <li><a href="#ref-for-artur-policy-nonce-2">4.1.1. 
+    <li><a href="#ref-for-artur-policy-nonce-2">4.1.1.
   Populate response’s CSP list from its ARTUR policy. </a> <a href="#ref-for-artur-policy-nonce-3">(2)</a> <a href="#ref-for-artur-policy-nonce-4">(3)</a> <a href="#ref-for-artur-policy-nonce-5">(4)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="artur-policy-hash-set">
    <b><a href="#artur-policy-hash-set">#artur-policy-hash-set</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-artur-policy-hash-set-1">2.2.1. 
+    <li><a href="#ref-for-artur-policy-hash-set-1">2.2.1.
   Obtain a set of ARTUR policies for response. </a>
-    <li><a href="#ref-for-artur-policy-hash-set-2">4.1.1. 
+    <li><a href="#ref-for-artur-policy-hash-set-2">4.1.1.
   Populate response’s CSP list from its ARTUR policy. </a> <a href="#ref-for-artur-policy-hash-set-3">(2)</a> <a href="#ref-for-artur-policy-hash-set-4">(3)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="artur-policy-reporting-disposition">
    <b><a href="#artur-policy-reporting-disposition">#artur-policy-reporting-disposition</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-artur-policy-reporting-disposition-1">4.1.1. 
+    <li><a href="#ref-for-artur-policy-reporting-disposition-1">4.1.1.
   Populate response’s CSP list from its ARTUR policy. </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="artur-policy-reporting-group">
    <b><a href="#artur-policy-reporting-group">#artur-policy-reporting-group</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-artur-policy-reporting-group-1">2.2.1. 
+    <li><a href="#ref-for-artur-policy-reporting-group-1">2.2.1.
   Obtain a set of ARTUR policies for response. </a>
-    <li><a href="#ref-for-artur-policy-reporting-group-2">4.1.1. 
+    <li><a href="#ref-for-artur-policy-reporting-group-2">4.1.1.
   Populate response’s CSP list from its ARTUR policy. </a> <a href="#ref-for-artur-policy-reporting-group-3">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="artur-policy-eval-policy">
    <b><a href="#artur-policy-eval-policy">#artur-policy-eval-policy</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-artur-policy-eval-policy-1">2.2.1. 
+    <li><a href="#ref-for-artur-policy-eval-policy-1">2.2.1.
   Obtain a set of ARTUR policies for response. </a>
-    <li><a href="#ref-for-artur-policy-eval-policy-2">4.1.1. 
+    <li><a href="#ref-for-artur-policy-eval-policy-2">4.1.1.
   Populate response’s CSP list from its ARTUR policy. </a>
    </ul>
   </aside>
@@ -2143,7 +2143,7 @@ violation report?<a href="#issue-fbed4d71"> ↵ </a></div>
    <b><a href="#http-headerdef-artur">#http-headerdef-artur</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-http-headerdef-artur-1">1. Introduction</a> <a href="#ref-for-http-headerdef-artur-2">(2)</a>
-    <li><a href="#ref-for-http-headerdef-artur-3">2.2.1. 
+    <li><a href="#ref-for-http-headerdef-artur-3">2.2.1.
   Obtain a set of ARTUR policies for response. </a>
     <li><a href="#ref-for-http-headerdef-artur-4">3. The ARTUR HTTP Response Header</a>
     <li><a href="#ref-for-http-headerdef-artur-5">3.1. The eval member</a>
@@ -2158,7 +2158,7 @@ violation report?<a href="#issue-fbed4d71"> ↵ </a></div>
   <aside class="dfn-panel" data-for="enumdef-evalpolicy">
    <b><a href="#enumdef-evalpolicy">#enumdef-evalpolicy</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-enumdef-evalpolicy-1">2.2.1. 
+    <li><a href="#ref-for-enumdef-evalpolicy-1">2.2.1.
   Obtain a set of ARTUR policies for response. </a>
     <li><a href="#ref-for-enumdef-evalpolicy-2">3. The ARTUR HTTP Response Header</a>
    </ul>
@@ -2166,7 +2166,7 @@ violation report?<a href="#issue-fbed4d71"> ↵ </a></div>
   <aside class="dfn-panel" data-for="dom-arturpolicy-eval">
    <b><a href="#dom-arturpolicy-eval">#dom-arturpolicy-eval</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-arturpolicy-eval-1">2.2.1. 
+    <li><a href="#ref-for-dom-arturpolicy-eval-1">2.2.1.
   Obtain a set of ARTUR policies for response. </a>
     <li><a href="#ref-for-dom-arturpolicy-eval-2">3.1. The eval member</a>
    </ul>
@@ -2174,14 +2174,14 @@ violation report?<a href="#issue-fbed4d71"> ↵ </a></div>
   <aside class="dfn-panel" data-for="dom-arturpolicy-hash">
    <b><a href="#dom-arturpolicy-hash">#dom-arturpolicy-hash</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-arturpolicy-hash-1">2.2.1. 
+    <li><a href="#ref-for-dom-arturpolicy-hash-1">2.2.1.
   Obtain a set of ARTUR policies for response. </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-arturpolicy-nonce">
    <b><a href="#dom-arturpolicy-nonce">#dom-arturpolicy-nonce</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-arturpolicy-nonce-1">2.2.1. 
+    <li><a href="#ref-for-dom-arturpolicy-nonce-1">2.2.1.
   Obtain a set of ARTUR policies for response. </a>
     <li><a href="#ref-for-dom-arturpolicy-nonce-2">3.4. The report member</a>
     <li><a href="#ref-for-dom-arturpolicy-nonce-3">3.5. The reportOnly member</a>
@@ -2190,7 +2190,7 @@ violation report?<a href="#issue-fbed4d71"> ↵ </a></div>
   <aside class="dfn-panel" data-for="dom-arturpolicy-report">
    <b><a href="#dom-arturpolicy-report">#dom-arturpolicy-report</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-arturpolicy-report-1">2.2.1. 
+    <li><a href="#ref-for-dom-arturpolicy-report-1">2.2.1.
   Obtain a set of ARTUR policies for response. </a>
     <li><a href="#ref-for-dom-arturpolicy-report-2">3.4. The report member</a> <a href="#ref-for-dom-arturpolicy-report-3">(2)</a>
     <li><a href="#ref-for-dom-arturpolicy-report-4">3.5. The reportOnly member</a> <a href="#ref-for-dom-arturpolicy-report-5">(2)</a>

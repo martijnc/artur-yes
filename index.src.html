@@ -168,7 +168,7 @@ objects. If no valid policy is found for |response|, the returned sequence will 
 
     2.  If |item| has a {{ArturPolicy/hash}} member whose value (|value|) is a
         `sequence<DOMString>`, then for each |digest| in |value|:
-        
+
         1.  If |digest| matches the ABNF grammar
             <code><a grammar>hash-algorithm</a>-<a grammar>hash-source</a></code> (as defined in
             [[!CSP]]), then add |digest| to |policy|'s <a for="ARTUR policy">hash set</a>.
@@ -186,7 +186,7 @@ objects. If no valid policy is found for |response|, the returned sequence will 
         |value|.
 
     7.  Append |policy| to |policies|.
-    
+
 6.  Return |policies|.
 
 
@@ -256,7 +256,7 @@ make it hard to deny by fiat.
   their ARTUR policy:
 
   <pre>
-    <a http-header>ARTUR</a>: { "<a for="ArturPolicy">hash</a>": [ "<strong>sha256-abcd...</strong>", "<strong>sha256-zyx...</strong>", "<a for="ArturPolicy">eval</a>": "unsafe-allow" ] }
+    <a http-header>ARTUR</a>: { "<a for="ArturPolicy">hash</a>": [ "<strong>sha256-abcd...</strong>", "<strong>sha256-zyx...</strong>" ], "<a for="ArturPolicy">eval</a>": "unsafe-allow" }
   </pre>
 </div>
 
@@ -286,7 +286,7 @@ item in the sequence that does not match that grammer MUST be ignored.
     &lt;script&gt;
       // Content which hashes to `abcd...` goes here.
     &lt;/script&gt;
-    
+
     &lt;a onclick="// Content which hashes to `zyx...` goes here."&gt;Click!&lt;/a&gt;
   </pre>
 </div>
